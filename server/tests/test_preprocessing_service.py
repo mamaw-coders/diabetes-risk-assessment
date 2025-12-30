@@ -4,6 +4,7 @@ Preprocessing Service Tests
 Tests for BMI calculation and feature engineering.
 """
 import pytest
+
 from app.services.preprocessing_service import PreprocessingService
 
 

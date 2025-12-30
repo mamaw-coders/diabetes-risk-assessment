@@ -3,10 +3,11 @@ Preprocessing Service - Feature Engineering
 
 Handles BMI calculation, feature normalization, and input transformation.
 """
-from typing import Dict, Any, List
+from typing import Any
+
 import numpy as np
 
-from app.utils.constants import FEATURE_ORDER, AGE_CATEGORIES
+from app.utils.constants import AGE_CATEGORIES, FEATURE_ORDER
 
 
 class PreprocessingService:
@@ -69,7 +70,7 @@ class PreprocessingService:
     
     def prepare_features(
         self, 
-        input_data: Dict[str, Any], 
+        input_data: dict[str, Any], 
         bmi: float
     ) -> np.ndarray:
         """

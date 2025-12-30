@@ -3,22 +3,16 @@ Model Evaluation Script
 
 Loads trained model and generates detailed evaluation reports.
 """
-import pandas as pd
-import numpy as np
-import joblib
 from pathlib import Path
 
+import joblib
+import pandas as pd
 from sklearn.metrics import (
-    classification_report,
-    confusion_matrix,
-    roc_auc_score,
-    roc_curve,
-    precision_recall_curve,
     f1_score,
+    precision_score,
     recall_score,
-    precision_score
+    roc_auc_score,
 )
-
 
 # Paths
 BASE_DIR = Path(__file__).resolve().parent.parent

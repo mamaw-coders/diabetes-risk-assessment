@@ -3,12 +3,11 @@ API Routes - Presentation Layer
 
 Defines HTTP endpoints for the diabetes risk prediction API.
 """
-from flask import request, jsonify
+from flask import jsonify, request
 
 from app.api import api_bp
 from app.api.schemas import PredictionRequestSchema, PredictionResponseSchema
 from app.services.prediction_service import PredictionService
-
 
 # Initialize schemas
 prediction_request_schema = PredictionRequestSchema()

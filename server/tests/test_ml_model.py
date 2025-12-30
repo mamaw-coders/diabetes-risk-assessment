@@ -3,9 +3,10 @@ ML Model Tests
 
 Tests for model loading and prediction functionality.
 """
-import pytest
-import numpy as np
 from pathlib import Path
+
+import numpy as np
+import pytest
 
 
 class TestModelLoading:
@@ -99,6 +100,7 @@ class TestFeatureOrderConsistency:
     def test_feature_order_matches_constants(self):
         """Feature order in trained model should match constants.py."""
         import joblib
+
         from app.utils.constants import FEATURE_ORDER as APP_FEATURE_ORDER
         
         model_path = Path(__file__).parent.parent / "artifacts" / "model.pkl"

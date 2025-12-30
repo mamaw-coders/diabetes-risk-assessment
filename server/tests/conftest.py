@@ -4,6 +4,7 @@ Test Configuration - Pytest Fixtures
 Provides test fixtures for Flask application testing.
 """
 import pytest
+
 from app import create_app
 from app.config import TestingConfig
 

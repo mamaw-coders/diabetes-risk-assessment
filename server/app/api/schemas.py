@@ -3,7 +3,7 @@ Marshmallow Schemas - Request/Response Validation
 
 Defines schemas for API input validation and output serialization.
 """
-from marshmallow import Schema, fields, validate, post_load
+from marshmallow import Schema, fields, post_load, validate
 
 
 class PredictionRequestSchema(Schema):

@@ -4,10 +4,9 @@ Data Exploration Script
 Performs exploratory data analysis on the BRFSS2015 diabetes dataset.
 Generates statistics, distributions, and correlation analysis.
 """
-import pandas as pd
-import numpy as np
 from pathlib import Path
 
+import pandas as pd
 
 # Paths
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"

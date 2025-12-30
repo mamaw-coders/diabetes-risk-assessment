@@ -5,9 +5,10 @@ Handles loading, caching, and inference of the trained ML model.
 Uses singleton pattern to ensure model is loaded only once.
 """
 import os
+from typing import Optional
+
 import joblib
 import numpy as np
-from typing import Optional
 from flask import current_app
 
 

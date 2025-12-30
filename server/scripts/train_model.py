@@ -4,24 +4,21 @@ Model Training Script
 Trains a Random Forest classifier for diabetes risk prediction.
 Generates model.pkl artifact for Flask application.
 """
-import pandas as pd
-import numpy as np
-import joblib
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
-from sklearn.model_selection import train_test_split, cross_val_score
+import joblib
+import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     classification_report,
     confusion_matrix,
-    roc_auc_score,
-    precision_recall_curve,
     f1_score,
+    precision_score,
     recall_score,
-    precision_score
+    roc_auc_score,
 )
-
+from sklearn.model_selection import cross_val_score, train_test_split
 
 # Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -132,8 +129,8 @@ def evaluate_model(model, X_train, y_train, X_test, y_test):
     # Confusion matrix
     print("\n--- Confusion Matrix ---")
     cm = confusion_matrix(y_test, y_pred)
-    print(f"                 Predicted")
-    print(f"                 No    Yes")
+    print("                 Predicted")
+    print("                 No    Yes")
     print(f"Actual No  {cm[0][0]:6d} {cm[0][1]:6d}")
     print(f"Actual Yes {cm[1][0]:6d} {cm[1][1]:6d}")
     

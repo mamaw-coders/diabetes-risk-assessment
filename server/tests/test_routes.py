@@ -3,7 +3,6 @@ Route Tests - API Endpoint Testing
 
 Tests for the /predict and /health endpoints.
 """
-import pytest
 import json
 
 

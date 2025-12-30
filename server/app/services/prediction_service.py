@@ -3,11 +3,11 @@ Prediction Service - Core Business Logic
 
 Orchestrates the prediction workflow from raw input to risk assessment.
 """
-from typing import Dict, Any, List
+from typing import Any
 
-from app.services.preprocessing_service import PreprocessingService
 from app.models.ml_model import DiabetesModel
-from app.utils.constants import RISK_THRESHOLD, DISCLAIMER_TEXT
+from app.services.preprocessing_service import PreprocessingService
+from app.utils.constants import DISCLAIMER_TEXT, RISK_THRESHOLD
 
 
 class PredictionService:
@@ -18,7 +18,7 @@ class PredictionService:
         self.preprocessing = PreprocessingService()
         self.model = DiabetesModel.get_instance()
     
-    def predict(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
+    def predict(self, input_data: dict[str, Any]) -> dict[str, Any]:
         """
         Perform diabetes risk prediction.
         
@@ -56,9 +56,9 @@ class PredictionService:
     
     def _identify_contributing_factors(
         self, 
-        input_data: Dict[str, Any], 
+        input_data: dict[str, Any], 
         bmi: float
-    ) -> List[str]:
+    ) -> list[str]:
         """
         Identify key factors contributing to risk assessment.
         

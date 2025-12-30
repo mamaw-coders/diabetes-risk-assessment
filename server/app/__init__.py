@@ -7,9 +7,9 @@ Flask application instances with proper configuration.
 from flask import Flask
 from flask_cors import CORS
 
-from app.config import Config
 from app.api import api_bp
 from app.api.error_handlers import register_error_handlers
+from app.config import Config
 
 
 def create_app(config_class=Config):
