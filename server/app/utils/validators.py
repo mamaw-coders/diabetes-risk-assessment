@@ -3,7 +3,7 @@ Validators - Input Validation Helpers
 
 Provides reusable validation functions for health data.
 """
-from typing import Any, Optional
+from typing import Any
 
 
 def validate_positive(value: Any, field_name: str = "value") -> float:
@@ -26,7 +26,7 @@ def validate_positive(value: Any, field_name: str = "value") -> float:
             raise ValueError(f"{field_name} must be positive, got {value}")
         return num_value
     except (TypeError, ValueError) as e:
-        raise ValueError(f"{field_name} must be a positive number: {str(e)}")
+        raise ValueError(f"{field_name} must be a positive number: {str(e)}") from e
 
 
 def validate_range(
@@ -58,7 +58,7 @@ def validate_range(
             )
         return num_value
     except (TypeError, ValueError) as e:
-        raise ValueError(f"{field_name} validation failed: {str(e)}")
+        raise ValueError(f"{field_name} validation failed: {str(e)}") from e
 
 
 def validate_boolean(value: Any, field_name: str = "value") -> bool:
