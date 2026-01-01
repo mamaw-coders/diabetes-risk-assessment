@@ -3,184 +3,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI-powered diabetes risk assessment tool">
-    <title>Diabetes Risk Assessment | AI Health Screening</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>GlucoSense - AI Health Risk Assessment</title>
+    <meta name="description" content="AI-powered diabetes risk assessment tool. Get your personalized risk profile in under 30 seconds.">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/images/logo.svg">
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-light bg-white shadow-sm">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-heart-pulse-fill text-primary me-2"></i>DiabetesCheck
+            <a class="navbar-brand" href="#">
+                <svg class="brand-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="16" fill="url(#brandGradient)"/>
+                    <path d="M16 8C16 8 12 12 12 16C12 18.2 13.8 20 16 20C18.2 20 20 18.2 20 16C20 12 16 8 16 8Z" fill="white"/>
+                    <path d="M8 16H11M21 16H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="brandGradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563EB"/>
+                            <stop offset="1" stop-color="#00C4CC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                GlucoSense
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-4">
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Help</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="bg-light py-5">
-        <div class="container text-center">
-            <h1 class="display-5 fw-bold mb-3">Diabetes Risk Assessment</h1>
-            <p class="lead text-muted">AI-powered screening trained on 70,000+ clinical records</p>
-        </div>
-    </header>
-
-    <!-- Assessment Form -->
-    <main class="py-5">
+    <section class="hero-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form id="assessmentForm" class="needs-validation" novalidate>
-                        
-                        <!-- Demographics -->
-                        <div class="card mb-4">
-                            <div class="card-header bg-primary text-white">
-                                <i class="bi bi-person me-2"></i>Demographics
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h1 class="hero-title">
+                        Your Health,<br>
+                        <span class="text-gradient">Our Priority</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        A clinical-grade AI assessment tool trained on 70,000+ medical records. 
+                        Get your personalized diabetes risk profile in under 30 seconds.
+                    </p>
+                    <a href="#assessment" class="btn btn-primary btn-lg rounded-pill px-5 py-3">
+                        Check Your Risk
+                    </a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="hero-images">
+                        <div class="image-collage">
+                            <div class="collage-item collage-main">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop" alt="Doctor with patient" class="img-fluid rounded-4">
                             </div>
-                            <div class="card-body">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="age" class="form-label">Age</label>
-                                        <input type="number" class="form-control" id="age" name="age" min="18" max="120" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="sex" class="form-label">Sex</label>
-                                        <select class="form-select" id="sex" name="sex" required>
-                                            <option value="">Select...</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
+                            <div class="collage-item collage-secondary">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=200&fit=crop" alt="Medical consultation" class="img-fluid rounded-4">
                             </div>
-                        </div>
-
-                        <!-- Vitals -->
-                        <div class="card mb-4">
-                            <div class="card-header bg-primary text-white">
-                                <i class="bi bi-activity me-2"></i>Vitals
+                            <div class="collage-item collage-tertiary">
+                                <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=200&h=250&fit=crop" alt="Healthcare professional" class="img-fluid rounded-4">
                             </div>
-                            <div class="card-body">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="weight" class="form-label">Weight (kg)</label>
-                                        <input type="number" class="form-control" id="weight" name="weight" min="20" max="500" step="0.1" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="height" class="form-label">Height (cm)</label>
-                                        <input type="number" class="form-control" id="height" name="height" min="50" max="250" step="0.1" required>
-                                    </div>
-                                </div>
+                            <div class="floating-badge floating-badge-top">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                             </div>
-                        </div>
-
-                        <!-- Medical History -->
-                        <div class="card mb-4">
-                            <div class="card-header bg-primary text-white">
-                                <i class="bi bi-file-medical me-2"></i>Medical History
-                            </div>
-                            <div class="card-body">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="highBp" name="high_bp">
-                                            <label class="form-check-label" for="highBp">High Blood Pressure</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="highChol" name="high_chol">
-                                            <label class="form-check-label" for="highChol">High Cholesterol</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="smoker" name="smoker">
-                                            <label class="form-check-label" for="smoker">Smoker</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="heartDisease" name="heart_disease">
-                                            <label class="form-check-label" for="heartDisease">Heart Disease</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Health Status -->
-                        <div class="card mb-4">
-                            <div class="card-header bg-primary text-white">
-                                <i class="bi bi-clipboard2-heart me-2"></i>Health Status
-                            </div>
-                            <div class="card-body">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="generalHealth" class="form-label">General Health</label>
-                                        <select class="form-select" id="generalHealth" name="general_health" required>
-                                            <option value="">Select...</option>
-                                            <option value="1">Excellent</option>
-                                            <option value="2">Very Good</option>
-                                            <option value="3">Good</option>
-                                            <option value="4">Fair</option>
-                                            <option value="5">Poor</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-check mt-4">
-                                            <input type="checkbox" class="form-check-input" id="physActivity" name="phys_activity">
-                                            <label class="form-check-label" for="physActivity">Physically Active</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
-                                <i class="bi bi-cpu me-2"></i>Analyze Risk
-                            </button>
-                        </div>
-                    </form>
-
-                    <!-- Results (Hidden by default) -->
-                    <div id="resultsSection" class="d-none mt-5">
-                        <div class="card">
-                            <div class="card-body text-center py-5">
-                                <div id="riskIndicator" class="mb-4">
-                                    <!-- Risk result will be injected here -->
-                                </div>
-                                <button class="btn btn-outline-primary" id="retakeBtn">Take Again</button>
+                            <div class="floating-badge floating-badge-bottom">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <h2 class="section-title text-white text-center mb-5">How It Works</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <h5>1. Enter Your Data</h5>
+                        <p>Simple health metrics like age, weight, and lifestyle habits. No account required.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h5>2. AI Analysis</h5>
+                        <p>Our Random Forest model compares your profile against thousands of clinical records.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h5>3. Instant Results</h5>
+                        <p>Receive your risk assessment with contributing factors in seconds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&h=600&fit=crop" alt="Medical research" class="img-fluid rounded-4">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="section-title">Why Early Detection<br><span class="text-gradient">Matters</span></h2>
+                    <p class="about-text mb-4">
+                        Type 2 Diabetes affects millions worldwide, but early detection can significantly 
+                        improve outcomes. Our AI tool helps you understand your risk profile before symptoms appear.
+                    </p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Trained on 70,000+ validated clinical records from CDC BRFSS</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>No personal data stored — complete privacy protection</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Instant results with actionable health insights</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Free to use, no registration required</span>
+                        </li>
+                    </ul>
+                    <a href="#assessment" class="btn btn-outline-primary btn-lg rounded-pill px-4 mt-3">
+                        Start Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section id="assessment" class="assessment-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Diabetes <span class="text-gradient">Checker</span></h2>
+                        <p class="text-muted">Complete the 4-step wizard to get your personalized assessment</p>
+                    </div>
+
+                    <div class="assessment-card">
+                        <!-- Progress Bar -->
+                        <div class="wizard-progress">
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progressBar" style="width: 25%"></div>
+                            </div>
+                            <div class="progress-steps">
+                                <div class="progress-step active" data-step="1">
+                                    <span class="step-number">1</span>
+                                    <span class="step-label">Basics</span>
+                                </div>
+                                <div class="progress-step" data-step="2">
+                                    <span class="step-number">2</span>
+                                    <span class="step-label">History</span>
+                                </div>
+                                <div class="progress-step" data-step="3">
+                                    <span class="step-number">3</span>
+                                    <span class="step-label">Lifestyle</span>
+                                </div>
+                                <div class="progress-step" data-step="4">
+                                    <span class="step-number">4</span>
+                                    <span class="step-label">Status</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-body">
+                            <form id="riskForm">
+                                <!-- Step 1: Basics -->
+                                <div class="form-step active" data-step="1">
+                                    <h4 class="step-title">Step 1: The Basics</h4>
+                                    <p class="step-description">Let's start with some basic information about you.</p>
+                                    
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Age</label>
+                                            <input type="number" class="form-control" name="age" min="18" max="120" required placeholder="e.g. 35">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Sex</label>
+                                            <select class="form-select" name="sex" required>
+                                                <option value="" selected disabled>Select...</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Weight (kg)</label>
+                                            <input type="number" class="form-control" name="weight" min="20" max="300" required placeholder="e.g. 70">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Height (cm)</label>
+                                            <input type="number" class="form-control" name="height" min="50" max="250" required placeholder="e.g. 170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Medical History -->
+                                <div class="form-step d-none" data-step="2">
+                                    <h4 class="step-title">Step 2: Medical History</h4>
+                                    <p class="step-description">Have you ever been diagnosed with any of the following?</p>
+                                    
+                                    <div class="condition-grid">
+                                        <div class="condition-card">
+                                            <input type="checkbox" class="condition-input" id="high_bp" name="high_bp">
+                                            <label class="condition-label" for="high_bp">
+                                                <span class="condition-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                                </span>
+                                                <span class="condition-name">High Blood Pressure</span>
+                                                <span class="condition-desc">Hypertension</span>
+                                            </label>
+                                        </div>
+                                        <div class="condition-card">
+                                            <input type="checkbox" class="condition-input" id="high_chol" name="high_chol">
+                                            <label class="condition-label" for="high_chol">
+                                                <span class="condition-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                                                </span>
+                                                <span class="condition-name">High Cholesterol</span>
+                                                <span class="condition-desc">Elevated LDL levels</span>
+                                            </label>
+                                        </div>
+                                        <div class="condition-card">
+                                            <input type="checkbox" class="condition-input" id="heart_disease" name="heart_disease">
+                                            <label class="condition-label" for="heart_disease">
+                                                <span class="condition-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                                                </span>
+                                                <span class="condition-name">Heart Disease</span>
+                                                <span class="condition-desc">CHD or heart attack</span>
+                                            </label>
+                                        </div>
+                                        <div class="condition-card">
+                                            <input type="checkbox" class="condition-input" id="stroke" name="stroke">
+                                            <label class="condition-label" for="stroke">
+                                                <span class="condition-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                                </span>
+                                                <span class="condition-name">Stroke</span>
+                                                <span class="condition-desc">History of stroke</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Lifestyle -->
+                                <div class="form-step d-none" data-step="3">
+                                    <h4 class="step-title">Step 3: Lifestyle</h4>
+                                    <p class="step-description">Tell us about your daily habits.</p>
+                                    
+                                    <div class="lifestyle-section">
+                                        <div class="lifestyle-row">
+                                            <label class="form-label">Smoking History</label>
+                                            <div class="toggle-group">
+                                                <input type="radio" class="toggle-input" name="smoker" id="smoke_no" value="false" checked>
+                                                <label class="toggle-label" for="smoke_no">No</label>
+                                                <input type="radio" class="toggle-input" name="smoker" id="smoke_yes" value="true">
+                                                <label class="toggle-label" for="smoke_yes">Yes (100+ cigarettes)</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="lifestyle-row">
+                                            <label class="form-label">Heavy Alcohol Consumption</label>
+                                            <div class="toggle-group">
+                                                <input type="radio" class="toggle-input" name="heavy_alcohol" id="alcohol_no" value="false" checked>
+                                                <label class="toggle-label" for="alcohol_no">No</label>
+                                                <input type="radio" class="toggle-input" name="heavy_alcohol" id="alcohol_yes" value="true">
+                                                <label class="toggle-label" for="alcohol_yes">Yes</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="lifestyle-row">
+                                            <label class="form-label">Physical Activity (Past 30 Days)</label>
+                                            <div class="toggle-group">
+                                                <input type="radio" class="toggle-input" name="phys_activity" id="phys_no" value="false">
+                                                <label class="toggle-label toggle-warning" for="phys_no">Inactive</label>
+                                                <input type="radio" class="toggle-input" name="phys_activity" id="phys_yes" value="true" checked>
+                                                <label class="toggle-label toggle-success" for="phys_yes">Active</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="lifestyle-row">
+                                            <label class="form-label">Daily Nutrition</label>
+                                            <div class="nutrition-options">
+                                                <div class="nutrition-item">
+                                                    <input type="checkbox" class="nutrition-input" id="fruits" name="fruits">
+                                                    <label class="nutrition-label" for="fruits">
+                                                        <svg class="nutrition-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                                                        <span>Daily Fruit Intake</span>
+                                                    </label>
+                                                </div>
+                                                <div class="nutrition-item">
+                                                    <input type="checkbox" class="nutrition-input" id="veggies" name="veggies">
+                                                    <label class="nutrition-label" for="veggies">
+                                                        <svg class="nutrition-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                                                        <span>Daily Vegetable Intake</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Health Status -->
+                                <div class="form-step d-none" data-step="4">
+                                    <h4 class="step-title">Step 4: Current Health Status</h4>
+                                    <p class="step-description">Help us understand how you're feeling lately.</p>
+                                    
+                                    <div class="health-section">
+                                        <div class="health-rating">
+                                            <label class="form-label">How would you rate your overall health?</label>
+                                            <div class="rating-options">
+                                                <input type="radio" class="rating-input" name="general_health" id="health_1" value="1" checked>
+                                                <label class="rating-label rating-excellent" for="health_1">
+                                                    <span class="rating-number">1</span>
+                                                    <span>Excellent</span>
+                                                </label>
+                                                
+                                                <input type="radio" class="rating-input" name="general_health" id="health_2" value="2">
+                                                <label class="rating-label rating-verygood" for="health_2">
+                                                    <span class="rating-number">2</span>
+                                                    <span>Very Good</span>
+                                                </label>
+                                                
+                                                <input type="radio" class="rating-input" name="general_health" id="health_3" value="3">
+                                                <label class="rating-label rating-good" for="health_3">
+                                                    <span class="rating-number">3</span>
+                                                    <span>Good</span>
+                                                </label>
+                                                
+                                                <input type="radio" class="rating-input" name="general_health" id="health_4" value="4">
+                                                <label class="rating-label rating-fair" for="health_4">
+                                                    <span class="rating-number">4</span>
+                                                    <span>Fair</span>
+                                                </label>
+                                                
+                                                <input type="radio" class="rating-input" name="general_health" id="health_5" value="5">
+                                                <label class="rating-label rating-poor" for="health_5">
+                                                    <span class="rating-number">5</span>
+                                                    <span>Poor</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slider-section">
+                                            <label class="form-label">
+                                                In the past 30 days, how many days did you feel stressed, depressed, or anxious?
+                                            </label>
+                                            <div class="slider-container">
+                                                <span class="slider-min">0</span>
+                                                <input type="range" class="custom-slider" name="mental_health" min="0" max="30" value="0" 
+                                                    oninput="document.getElementById('mental_val').textContent = this.value + ' days'">
+                                                <span class="slider-max">30</span>
+                                            </div>
+                                            <div class="slider-value" id="mental_val">0 days</div>
+                                        </div>
+                                        
+                                        <div class="slider-section">
+                                            <label class="form-label">
+                                                In the past 30 days, how many days were you physically unwell?
+                                            </label>
+                                            <div class="slider-container">
+                                                <span class="slider-min">0</span>
+                                                <input type="range" class="custom-slider" name="physical_health" min="0" max="30" value="0"
+                                                    oninput="document.getElementById('physical_val').textContent = this.value + ' days'">
+                                                <span class="slider-max">30</span>
+                                            </div>
+                                            <div class="slider-value" id="physical_val">0 days</div>
+                                        </div>
+                                        
+                                        <div class="walking-section">
+                                            <label class="form-label">Do you have serious difficulty walking or climbing stairs?</label>
+                                            <div class="walking-options">
+                                                <input type="radio" class="walking-input" name="difficulty_walking" id="walk_no" value="false" checked>
+                                                <label class="walking-label" for="walk_no">
+                                                    <svg class="walking-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                                                    <span>No, I Can Walk Fine</span>
+                                                </label>
+                                                
+                                                <input type="radio" class="walking-input" name="difficulty_walking" id="walk_yes" value="true">
+                                                <label class="walking-label walking-danger" for="walk_yes">
+                                                    <svg class="walking-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                                                    <span>Yes, I Have Difficulty</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <div class="wizard-nav">
+                                    <button type="button" class="btn btn-back" id="prevBtn" disabled>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                                        Back
+                                    </button>
+                                    <button type="button" class="btn btn-next" id="nextBtn">
+                                        Next Step
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Print Header (only visible when printing) -->
+                            <div class="print-header">
+                                <svg class="print-logo" width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16" r="16" fill="white"/>
+                                    <path d="M16 8C16 8 12 12 12 16C12 18.2 13.8 20 16 20C18.2 20 20 18.2 20 16C20 12 16 8 16 8Z" fill="#2563EB"/>
+                                    <path d="M8 16H11M21 16H24" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <div class="print-header-text">
+                                    <span class="print-brand">GlucoSense</span>
+                                    <span class="print-subtitle">Health Assessment Report</span>
+                                </div>
+                            </div>
+
+                            <!-- Results View -->
+                            <div id="resultsView" class="results-view d-none">
+                                <div class="results-header">
+                                    <div class="result-icon-wrapper" id="resultIconWrapper">
+                                        <svg id="resultIconSvg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                                    </div>
+                                    <h3 class="result-title" id="resultTitle">Analyzing...</h3>
+                                    <p class="result-probability" id="resultProbability"></p>
+                                </div>
+
+                                <div class="risk-meter">
+                                    <div class="risk-meter-bar">
+                                        <div class="risk-meter-fill" id="riskMeterFill"></div>
+                                        <div class="risk-meter-marker" id="riskMeterMarker"></div>
+                                    </div>
+                                    <div class="risk-meter-labels">
+                                        <span>Low</span>
+                                        <span>Moderate</span>
+                                        <span>High</span>
+                                    </div>
+                                </div>
+
+                                <div class="results-grid">
+                                    <div class="result-stat">
+                                        <span class="stat-label">Your BMI</span>
+                                        <span class="stat-value" id="resultBmi">--</span>
+                                        <span class="stat-category" id="resultBmiCategory">--</span>
+                                    </div>
+                                    <div class="result-stat">
+                                        <span class="stat-label">Risk Level</span>
+                                        <span class="stat-value" id="resultRiskLevel">--</span>
+                                        <span class="stat-category" id="resultRiskDesc">Based on your profile</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="factors-card">
+                                    <h6 class="factors-title">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                        Contributing Factors
+                                    </h6>
+                                    <ul class="factors-list" id="factorsList"></ul>
+                                </div>
+                                
+                                <div class="disclaimer-box">
+                                    <strong>Medical Disclaimer:</strong>
+                                    <span id="disclaimerText"></span>
+                                </div>
+                                
+                                <div class="results-actions">
+                                    <button class="btn btn-outline-secondary rounded-pill px-4" onclick="window.print()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                                        Print
+                                    </button>
+                                    <button class="btn btn-primary rounded-pill px-4" onclick="location.reload()">
+                                        Start Over
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                        <p class="text-muted">Everything you need to know about GlucoSense</p>
+                    </div>
+
+                    <div class="accordion" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How accurate is the GlucoSense assessment?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our AI model is trained on over 70,000 clinical records from the CDC BRFSS dataset and achieves 
+                                    a recall rate of over 90%. However, this tool is for educational purposes only and should not 
+                                    replace professional medical diagnosis. Always consult a healthcare provider for medical advice.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Is my data stored or shared?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>No.</strong> GlucoSense is designed with privacy first. Your health data is processed 
+                                    in real-time and is never stored on our servers. We do not collect, save, or share any 
+                                    personal information. Once you close the page, your data is gone.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What factors does the AI consider?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    The assessment considers 17 health indicators including: age, sex, BMI (calculated from height/weight), 
+                                    blood pressure history, cholesterol levels, heart disease, stroke history, smoking habits, 
+                                    alcohol consumption, physical activity, diet (fruits/vegetables), general health rating, 
+                                    mental health days, physical health days, and mobility difficulties.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    What should I do if I get a "High Risk" result?
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    A high-risk result indicates that your profile shares characteristics with individuals who have 
+                                    been diagnosed with diabetes. We recommend:
+                                    <ul class="mt-2 mb-0">
+                                        <li>Schedule an appointment with your healthcare provider</li>
+                                        <li>Request a fasting blood glucose or HbA1c test</li>
+                                        <li>Discuss lifestyle modifications with a professional</li>
+                                        <li>Don't panic — early detection leads to better outcomes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Is GlucoSense free to use?
+                                </button>
+                            </h3>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, GlucoSense is completely free. No registration, no hidden fees, no premium features. 
+                                    We built this tool as an educational project to raise awareness about diabetes risk factors 
+                                    and the importance of early screening.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="py-4 bg-dark text-white text-center">
-        <p class="mb-0 small">
-            <strong>Disclaimer:</strong> For educational purposes only. Not a substitute for medical advice.
-        </p>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                <svg class="brand-logo" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="16" fill="url(#footerGradient)"/>
+                    <path d="M16 8C16 8 12 12 12 16C12 18.2 13.8 20 16 20C18.2 20 20 18.2 20 16C20 12 16 8 16 8Z" fill="white"/>
+                    <path d="M8 16H11M21 16H24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="footerGradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563EB"/>
+                            <stop offset="1" stop-color="#00C4CC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                GlucoSense
+            </div>
+                <p class="footer-text">
+                © 2025 GlucoSense. For educational purposes only.<br>
+                This tool is not a substitute for professional medical advice.
+            </p>
+                <p class="footer-credits">
+                    Built by Mamaw Coders • Data from CDC BRFSS 2015
+                </p>
+            </div>
+        </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- App Scripts -->
-    <script src="assets/js/app.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
 </body>
 </html>

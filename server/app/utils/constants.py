@@ -6,7 +6,8 @@ Defines feature names, thresholds, and configuration values.
 
 # Risk threshold for classification
 # Probability >= RISK_THRESHOLD = HIGH risk
-RISK_THRESHOLD = 0.5
+# Set lower (0.3) for screening sensitivity - better to flag potential risks
+RISK_THRESHOLD = 0.3
 
 # Medical disclaimer for responses
 DISCLAIMER_TEXT = (
