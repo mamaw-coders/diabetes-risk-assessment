@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const API_URL = window.location.hostname === 'localhost' 
                 ? 'http://localhost:5000/predict'
-                : 'https://glucosense-api.onrender.com/predict';
+                : 'https://glucosense-api-u95g.onrender.com/predict';
             
             const response = await fetch(API_URL, {
                 method: 'POST',
