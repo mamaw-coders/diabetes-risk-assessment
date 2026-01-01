@@ -131,7 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             const payload = buildPayload(formData);
             
-            const API_URL = 'http://localhost:5000/predict';
+            const API_URL = window.location.hostname === 'localhost' 
+                ? 'http://localhost:5000/predict'
+                : 'https://glucosense-api.onrender.com/predict';
             
             const response = await fetch(API_URL, {
                 method: 'POST',
