@@ -10,32 +10,33 @@
 
 ## Overview
 
-A web-based health screening tool that uses machine learning to assess diabetes risk. Built as a final project for CSST 101.
+**GlucoSense** is a web-based health screening tool that uses machine learning to assess diabetes risk. Built as a final project for CSST 102.
 
 **Features:**
 
-- 🤖 Random Forest classifier trained on CDC BRFSS 2015 data
+- 🤖 Random Forest classifier trained on CDC BRFSS 2015 data (70,000+ records)
 - 🏥 BMI auto-calculation (kg/cm inputs)
 - 🔒 Privacy-first: no data storage
-- 📱 Responsive design
+- 📱 Responsive 4-step wizard interface
+- 🖨️ Print-friendly results
 
 ## Project Structure
 
 ```
 diabetes-risk-assessment/
 ├── client/                 # Frontend (Bootstrap 5)
-│   ├── index.html
-│   └── assets/
-│       ├── css/
-│       └── js/
+│   ├── index.html          # 4-step wizard form
+│   ├── css/style.css       # Custom styling
+│   └── js/app.js           # Form logic & API calls
 ├── server/                 # Backend (Flask)
 │   ├── app/
 │   │   ├── api/            # Routes & validation
 │   │   ├── services/       # Business logic
-│   │   ├── models/         # ML model
-│   │   └── utils/          # Helpers
-│   ├── artifacts/          # Trained model (.pkl)
-│   └── tests/
+│   │   ├── models/         # ML model loader
+│   │   └── utils/          # Helpers & constants
+│   ├── artifacts/          # Trained model (model.pkl)
+│   ├── scripts/            # Training & evaluation
+│   └── tests/              # Pytest suite
 ├── data/                   # BRFSS dataset
 └── docs/                   # PRD & documentation
 ```
@@ -82,8 +83,15 @@ Open `http://localhost:3000`
   "high_chol": false,
   "smoker": false,
   "heart_disease": false,
+  "stroke": false,
+  "phys_activity": true,
+  "fruits": true,
+  "veggies": true,
+  "heavy_alcohol": false,
   "general_health": 3,
-  "phys_activity": true
+  "mental_health": 0,
+  "physical_health": 0,
+  "difficulty_walking": false
 }
 ```
 
@@ -94,7 +102,9 @@ Open `http://localhost:3000`
   "risk_level": "LOW",
   "probability": 0.32,
   "bmi": 27.76,
-  "bmi_category": "Overweight"
+  "bmi_category": "Overweight",
+  "contributing_factors": ["BMI indicates overweight"],
+  "disclaimer": "This is for educational purposes only..."
 }
 ```
 
