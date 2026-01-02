@@ -1,4 +1,4 @@
-# Diabetes Risk Assessment - Frontend
+# GlucoSense - Frontend
 
 Bootstrap 5 web interface for the Diabetes Risk Predictor AI.
 
@@ -20,23 +20,43 @@ Bootstrap 5 web interface for the Diabetes Risk Predictor AI.
 
 ```
 client/
-├── index.html          # Main entry point
-└── assets/
-    ├── css/
-    │   ├── styles.css      # Global styles
-    │   └── components.css  # Component styles
-    ├── js/
-    │   ├── main.js         # App initialization
-    │   ├── api.js          # API service
-    │   ├── form.js         # Form handling
-    │   └── results.js      # Results display
-    └── images/
+├── index.html          # Main entry (4-step wizard form)
+├── css/
+│   └── style.css       # Custom styling (28KB)
+└── js/
+    └── app.js          # Form handling & API calls
 ```
+
+## Features
+
+- **4-Step Wizard Form**: Basics → Medical History → Lifestyle → Health Status
+- **Live Validation**: Real-time form validation with Bootstrap
+- **Risk Visualization**: Color-coded results with risk meter
+- **Print Support**: Print-friendly results page
+- **Responsive Design**: Mobile-first Bootstrap layout
 
 ## Configuration
 
-Edit `assets/js/api.js` to set the API base URL:
+Edit `js/app.js` to set the API base URL:
 
 ```javascript
-const API_BASE_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5000";
 ```
+
+## Sections
+
+| Section      | Description                |
+| ------------ | -------------------------- |
+| Hero         | Landing with image collage |
+| How It Works | 3-step process explanation |
+| About        | Early detection benefits   |
+| Assessment   | 4-step wizard form         |
+| FAQ          | Common questions accordion |
+| Footer       | Disclaimer & credits       |
+
+## Dependencies
+
+All loaded via CDN:
+
+- Bootstrap 5.3.2
+- Google Fonts (Inter, Plus Jakarta Sans)
